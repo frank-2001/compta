@@ -4,6 +4,7 @@ const NAME_APP="COMPTA"
 let dir=location.origin+"/"
 const STATIC_CACHE_URLS = [
     dir,
+    dir+"manifest.json",
     dir+"src/js/jquery.min.js",
     dir+"index.html",
     dir+"src/css/style.css",
@@ -15,6 +16,7 @@ const STATIC_CACHE_URLS = [
     dir+"src/js/project.js",
     dir+"src/js/stat.js",
     dir+"src/js/wallet.js",
+    dir+"src/img/ico1.png",
 ];
 // PWA Installation
 self.addEventListener("install", event => {
@@ -60,6 +62,8 @@ self.addEventListener("fetch", event => {
                     return response        
                 // })
                 // return response
+            }).catch(re=>{
+                return fetch(event.request)
             })
         );
         // event.respondWith(
