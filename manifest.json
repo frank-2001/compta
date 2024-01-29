@@ -1,5 +1,6 @@
 {
-    "id": "compta.app",
+    "protocol_handlers": [{"protocol":"mailto","url":"frankmakolongo@gmail.com"}], 
+    "id": "algo.compta.app",
     "scope": "/",
     "lang": "fr-FR",
     "name": "COMPTA",
