@@ -379,3 +379,8 @@ button{
   .stat-dep>canvas{
     background: var(--white);
   }
+  @media (min-width:650px) {
+    body{
+      display: none;
+    }
+  }

@@ -16,7 +16,6 @@ const STATIC_CACHE_URLS = [
     dir+"src/js/stat.js",
     dir+"src/js/wallet.js",
 ];
-console.log(dir);
 // PWA Installation
 self.addEventListener("install", event => {
     console.log("Service Worker installing version : " + VERSION_APP);
@@ -57,9 +56,9 @@ self.addEventListener("fetch", event => {
         // })
         event.respondWith(
             caches.match(event.request).then(response => {  
-                return fetch(event.request).catch((r)=>{
+                // return fetch(event.request).catch((r)=>{
                     return response        
-                })
+                // })
                 // return response
             })
         );
