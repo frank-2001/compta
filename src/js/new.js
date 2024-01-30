@@ -76,7 +76,6 @@ $("#list_projet>select").change(function (e) {
     // $("#devise").html(`<option>USD</option>`);
     $("#devise").val(p[0].devise);
 });
-
 // On remboursement emprunt 
 $("#list_depenses>select").change(function (e) { 
     e.preventDefault();
@@ -146,6 +145,9 @@ $("#mouv").submit(function (e) {
 
     
     if (form.type=="Entrer" || form.type=="Empreunter") {
+        if (form.empre) {
+            
+        }
         solde[form.devise]=Number(solde[form.devise])+Number(form.somme)
         solde.time=new Date().getTime()
         addTable("mouvements",form)
@@ -202,12 +204,20 @@ function load() {
 }
 // Reset all forms
 function reset() {
+    $("#list_depenses").hide(); 
+    $("#list_projet").hide();
+    // $("#list_source").hide();        
+    $("#mouv>.special").hide();        
+    $("#list_empreunt").hide()
+    $("#list_pret").hide()
     for (let i = 0; i < $('form').length; i++) {
         $('form')[i].reset()
     }
 }
 $(".menu-pen>div>button").click(function (e) { 
     e.preventDefault();
+    $(".menu-pen>div>button").removeClass("active");
+    $(e.currentTarget).addClass("active");
     reset()
     $("#new>form").hide();
 });

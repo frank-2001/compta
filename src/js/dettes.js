@@ -144,9 +144,8 @@ function detteDone(time) {
         let p=getTableFilter("mouvements","time",time)[0]
         p["done"]=1
         updateTable("mouvements",p)
-        
+        loadDettes()
     }
-
 }
 function detteDoneDirect(time) {
         let p=getTableFilter("mouvements","time",time)[0]

@@ -3,15 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" >
+    <meta name="description" content="Application de gestion de votre wallet">
     <title>WALLET</title>
+
     <link rel="stylesheet" href="src/css/style.css">
     <link rel="manifest" href="manifest.json">
     <link rel="shortcut icon" href="src/img/ico1.png" type="image/x-icon">
 </head>
 <body>
+    <section class="menu">
+        
+        <div class="menu-head">
+            <span>MENU</span>
+            <svg onclick="$('.menu').css('display', 'none');" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                <path fill-rule="evenodd" d="M11.03 3.97a.75.75 0 010 1.06l-6.22 6.22H21a.75.75 0 010 1.5H4.81l6.22 6.22a.75.75 0 11-1.06 1.06l-7.5-7.5a.75.75 0 010-1.06l7.5-7.5a.75.75 0 011.06 0z" clip-rule="evenodd" />
+              </svg>
+        </div>
+        <div class="menu-body">
+
+        </div>
+        <div class="menu-footer">
+            <p>
+                <span>COMPTA [ version beta ]</span><br>
+                <span>Developpée par  <span style="color: var(--primary);font-weight: bold;">&hearts;LACREA</span></span>
+                <br>
+                <span>&copy;2024</span>
+            </p>
+        </div>
+    </section>
     <header>
         <div>
-            <div>
+            <div onclick="$('.menu').css('display', 'grid');">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                     <path fill-rule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
                 </svg>
@@ -103,7 +125,7 @@
             <div>
                 <button onclick="setTimeout(() => {
                     $('#mouv').show()
-                }, 1);">Mouvement</button>
+                }, 1);" class="active">Mouvement</button>
                 <button onclick="setTimeout(() => {
                     $('#proj').show()
                 }, 1);">Projet</button>
@@ -144,6 +166,14 @@
                 <span>Interet</span>
                 <input type="number" step="0.01" value="0" name="interet" placeholder="100">
             </fieldset>
+            <fieldset  class="special hide" style="display: none;">
+                <span>Type d'empreunt</span>
+                <select name="empreunt" id="">
+                    <option>Argent</option>
+                    <option>Bien</option>
+                </select>
+            </fieldset>
+
             <fieldset style="display: none;" id="list_projet">
                 <span>Projet</span>
                 <select name="projet">

@@ -39,9 +39,6 @@ function updateTable(table,data) {
             return e
         }
     )
-    console.log(data);
-    console.log(newTable);
-    console.log(getTable(table));
     localStorage.setItem(table,JSON.stringify(newTable))
 }
 function getTableFilter(table,column,value) {
@@ -53,6 +50,39 @@ function getTableFilter(table,column,value) {
         }
     });
     return out;
+}
+function deleteLine(table,time) {
+    console.log(table);
+    console.log(time);
+    if(confirm("Voulez-vous vraiment supprimer cette ligne de la table"+table)){
+        let newTable=[]
+        let theLine
+        getTable(table).forEach(line => {
+            if (line.time!=time) {
+                newTable.push(line)
+            }else{
+                theLine=line
+            }
+        });
+        // console.log(getTable("solde"));
+        let lastS=getTable("solde").pop()
+        if (theLine.type=="Entrer" || theLine.type=="Empreunter") {
+            if (theLine.devise=="USD") {
+                lastS.USD=Number(lastS.USD)-Number(theLine.somme)
+            }else{
+                lastS.CDF=Number(lastS.CDF)-Number(theLine.somme)
+            }
+        }else{
+            if (theLine.devise=="USD") {
+                lastS.USD=Number(lastS.USD)+Number(theLine.somme)
+            }else{
+                lastS.CDF=Number(lastS.CDF)+Number(theLine.somme)
+            }
+        }
+        localStorage.setItem(table,JSON.stringify(newTable))
+        addTable("solde",lastS)
+        load()
+    }
 }
 // Synchroniser le donnees du serveur et celles qui se trouvent en local
 // Grance au timestemp recupere le donnees d'utilisateur et voir le temps de la derniere donnee

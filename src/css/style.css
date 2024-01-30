@@ -23,10 +23,58 @@ body>header>div{
     height: 8vh;
     padding: 0 4vw;
     width: 92vw;
-    backdrop-filter: blur(10px);
-    /* background: rgba(0, 0, 0, 0.096); */
+    backdrop-filter: blur(40px);
+    
+    /* background: var(--secondary); */
     /* font-weight: bold; */
     /* border-bottom: solid 1px white; */
+}
+.menu{
+  position: fixed;
+  margin: 0;
+  z-index: 9999;
+  backdrop-filter: blur(30px);
+  background: rgba(0, 0, 0, 0.534);
+  animation: reverse;
+  animation-duration: 2;
+  border-right: solid rgb(255, 255, 255) 2px;
+  border-radius: 0 40px 100px 0;
+  height: 98%;
+  width: 80%;
+  display: none;
+  grid-template-rows: 10%  60% 30%;
+  padding: 2% 10% ;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+.menu>div{
+  margin: 0;
+  /* width: 100%; */
+}
+.menu>div>svg{
+  width: 9%;
+}
+.menu-head{
+  display: flex;
+  /* background-color: red; */
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+.menu-body{
+  /* background: blue; */
+}
+.menu-footer{
+  /* background: green; */
+  /* display: flex; */
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0;
+  padding-bottom: 0%;
+  line-height: 120%;
+  font-size: small;
+  /* border-right: solid 2px white; */
+  /* border-radius: 50pc; */
 }
 header>div>div{
     display: flex;
@@ -373,11 +421,17 @@ button{
   }
   .stat-dep{
     height: 25vh;
-    width: 100%;
+    width: 92%;
+    margin:4%;
+    margin-bottom: 20px;
     /* padding: 5%; */
   }
   .stat-dep>canvas{
     background: var(--white);
+  }
+  .active{
+    background-color: white;
+    color: var(--primary);
   }
   @media (min-width:650px) {
     body{

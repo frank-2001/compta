@@ -65,10 +65,10 @@ function activities(data) {
     return {in:activities_in,out:activities_out}
 }
 function drawGraph(data,id,mode,lab) {
-    // console.log(data);
     $("#stat").append(`
         <div class="stat-dep">
             <canvas id="${id}"></canvas>
+            <hr>
         </div>
     `);
     let somRevMois=0
@@ -109,6 +109,7 @@ function drawGraph(data,id,mode,lab) {
     });
 }
 function loadStat() {
+    $(".stat-dep").remove();
     let gain_mois_usd=0
     let gain_mois_cdf=0
     let dep_mois_usd=0
