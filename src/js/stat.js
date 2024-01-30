@@ -21,7 +21,7 @@ function activities(data) {
     let activities_out={}
     let motif
     data.forEach(m => {
-        if (m.type=="Entrer" || m.type=="Empreunter") {
+        if (m.type=="Entrer" || m.type=="Empreunter" && m.empreunt!="Bien") {
             if (m.type=="Empreunter") {
                 motif=m.type
             } else {
@@ -38,8 +38,7 @@ function activities(data) {
             }else{
                 activities_in[motif]+=som
             }
-        }else{
-            // console.log(m.categorie_depense);
+        }else if (m.empreunt!="Bien") {
             if (m.type=="Preter") {
                 motif=m.type
             } else {
@@ -135,13 +134,13 @@ function loadStat() {
     let all_dep_cdf=0
 
     mvm.forEach(m => {
-        if (m.type=="Entrer" || m.type=="Empreunter") {
+        if (m.type=="Entrer" || m.type=="Empreunter" && m.empreunt!="Bien") {
             if (m.devise=="USD") {
                 all_gain_usd+=Number(m.somme)
             }else{
                 all_gain_cdf+=Number(m.somme)
             }
-        }else{
+        }else if(m.empreunt!="Bien"){
             if (m.devise=="USD") {
                 all_dep_usd+=Number(m.somme)
             }else{
@@ -151,13 +150,13 @@ function loadStat() {
         let dm=new Date(Number(m.time))
         if (mois.getMonth()==dm.getMonth() && mois.getFullYear()==dm.getFullYear() ) {
             all_Month.push(m)
-            if (m.type=="Entrer" || m.type=="Empreunter") {
+            if (m.type=="Entrer" || m.type=="Empreunter" && m.empreunt!="Bien") {
                 if (m.devise=="USD") {
                     gain_mois_usd+=Number(m.somme)
                 }else{
                     gain_mois_cdf+=Number(m.somme)
                 }
-            }else{
+            }else if(m.empreunt!="Bien"){
                 if (m.devise=="USD") {
                     dep_mois_usd+=Number(m.somme)
                 }else{
@@ -168,13 +167,13 @@ function loadStat() {
         
         if (last.m==dm.getMonth() && last.y==dm.getFullYear() ) {
             all_Last.push(m)
-            if (m.type=="Entrer" || m.type=="Empreunter") {
+            if (m.type=="Entrer" || m.type=="Empreunter" && m.empreunt!="Bien") {
                 if (m.devise=="USD") {
                     gain_last_usd+=Number(m.somme)
                 }else{
                     gain_last_cdf+=Number(m.somme)
                 }
-            }else{
+            }else if(m.empreunt!="Bien"){
                 if (m.devise=="USD") {
                     dep_last_usd+=Number(m.somme)
                 }else{

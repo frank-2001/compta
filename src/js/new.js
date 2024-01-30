@@ -145,13 +145,12 @@ $("#mouv").submit(function (e) {
 
     
     if (form.type=="Entrer" || form.type=="Empreunter") {
-        if (form.empre) {
-            
-        }
-        solde[form.devise]=Number(solde[form.devise])+Number(form.somme)
-        solde.time=new Date().getTime()
         addTable("mouvements",form)
-        addTable("solde",solde)
+        if (form.empreunt!="Bien") {
+            solde[form.devise]=Number(solde[form.devise])+Number(form.somme)
+            solde.time=new Date().getTime()
+            addTable("solde",solde)
+        }
         this.reset()
     }else{
         if (Number(solde[form.devise])>=Number(form.somme)) {
