@@ -1,5 +1,5 @@
 // Cache infos
-const VERSION_APP = "V1"
+const VERSION_APP = "V2"
 const NAME_APP="COMPTA"
 let dir=location.origin+"/"
 const STATIC_CACHE_URLS = [
@@ -10,7 +10,7 @@ const STATIC_CACHE_URLS = [
     dir+"src/css/style.css",
     dir+"src/js/base.js",
     dir+"src/js/chart.js",
-    dir+"src/js/db.js",
+    dir+"src/js/indexDb.js",
     dir+"src/js/dettes.js",
     dir+"src/js/new.js",
     dir+"src/js/project.js",
